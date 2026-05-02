@@ -1,0 +1,1 @@
+export {type isOpenModel,type menuDTO} from "./AppModels";

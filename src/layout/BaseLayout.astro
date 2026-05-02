@@ -1,0 +1,28 @@
+---
+import "../assets/styles/index.scss";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+---
+
+
+<html lang="ja">
+    <head>
+        <script is:inline>
+            const saved = localStorage.getItem('zanzomode') ?? 'on';
+            document.documentElement.dataset.zanzomode = saved;
+        </script>
+
+        <meta charset="utf-8"/>
+        <link rel="icon" type="image/svg+xml" href="https://dawn-waiting.com/static/media/dawn_cat_ani.863d6550f404cf074627.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+    </head>
+
+    <body>
+        <Header/>
+        <main>
+            <slot/>
+        </main>
+        <Footer/>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+---
+
+---
+
+
+<section class="section-frame hero">
+    <div class="hero-subtitle">
+        <p class="text-3xl">ひろとのお写真ポートフォリオ</p>
+        <p>Hiroto’s Photo Portfolio</p>
+    </div>
+
+
+    <div class="hero-title">
+        <p class="text-2h">ZANZO</p>
+        <p class="text-7xl">歴史には残らない、いつかの残像</p>
+    </div>
+</section>
+
+
+<style lang="scss">
+    .hero{
+        position:relative;
+
+        &-title{
+            color: white;
+            position:absolute;
+            bottom:2%;
+            left:2%;
+            > p {
+                border-top: 1px white solid;  
+                display: inline-block; 
+                line-height: 1;
+            }
+        }
+
+        &-subtitle{
+            position: absolute;
+            top:10%;
+            right:10%;
+            > p{
+                width: fit-content;
+                padding:0 1rem;
+                background-color: white;
+            }
+        }
+    }
+</style>

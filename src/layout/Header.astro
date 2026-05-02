@@ -1,0 +1,150 @@
+---
+import { ImagesIndex } from "../assets/ImagesIndex"
+import {ZanzoLogo,ZanzoImageFrame,ZanzoButtonFrame} from "../components";
+import {menuList} from "../constants/AppData";
+---
+
+<header>
+    <button type="button" id="menuButton">
+        <ZanzoLogo/>
+    </button>
+    <section class="section-frame" id="header-menu">
+        <div class="menu">
+            <div class="menu-display">
+                <figure class="menu-display__container start" data-menuopen >
+                    <ZanzoImageFrame className="img--sm-box" src={ImagesIndex.IMG_4160} alt="ryo_photo" />
+                </figure>
+                <ZanzoButtonFrame client:load>
+                    <div class="menu-display__content" data-menuopen >
+                        <ZanzoLogo/>
+                        <div>
+                            <p class="text-h">ZANZO</p>
+                            <p class="text-3xl">モードを切り替える</p>
+                        </div>
+                    </div>
+                </ZanzoButtonFrame>
+                <figure class="menu-display__container end" data-menuopen >
+                    <ZanzoImageFrame className="img--sm-box" src={ImagesIndex.IMG_9429} alt="ryo_photo" />
+                </figure>
+            </div>
+            <div class="menu-list" >
+
+                {
+                    menuList.map((group)=>(
+                        <div class="menu-list__group" data-menuopen >
+                            <p class="menu-list__group-title">
+                                {group.title}
+                            </p>
+                            <div class="menu-list__group-contents">
+                                {
+                                    group.items.map((item)=>(
+                                        <a class="text-3xl" href={item.path} >{item.name}</a>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</header>
+
+
+
+
+<script>
+    import {menuOpenHook} from "../hooks";
+    menuOpenHook();
+</script>
+
+<style lang="scss">
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        position: fixed;
+        top:0;
+        left:0;
+        z-index:99;
+        width: 100%;
+        box-sizing: border-box;
+        padding:1rem;
+    }
+
+
+    #header-menu{
+        background: #00000088;
+        backdrop-filter: blur(20px);
+        position: fixed;
+        z-index: -1;
+        top:0;left:0;
+        opacity: 0;
+        visibility: hidden;
+        transition:opacity 0.3s ease-in-out;
+    }
+    .menu{
+        width: 100%;
+        height: 100dvh;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        color:white;
+
+        &-display{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            &__content{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap:3rem;
+                cursor: pointer;
+
+                &:hover{
+                    color: #cccccc;
+                }
+            }
+            &__container{
+                width: 100%;
+                display: flex;
+                &.start{justify-content: start;}
+                &.end{justify-content: end;}
+            }
+        }
+
+        &-list{
+            max-width: 43.5rem; 
+           display: flex;
+           flex-direction: column;
+            gap: 3rem;
+
+            &__group{
+               width: 43.5rem; 
+               display: flex;
+               flex-direction: column;
+               gap: 0.5rem;
+               &-title{border-bottom: 1px white solid;width: 100%;}
+               &contents{
+            
+                } 
+            }
+        }
+    }
+
+
+    [data-menuopen]{
+        opacity: 0;
+        filter: brightness(500%) blur(10px);
+        transition:opacity 0.8s ease-in-out,filter 0.8s ease-in-out;
+        &.show{
+            opacity: 1;
+            filter: brightness(100%) blur(0);
+        }   
+    }
+ 
+
+</style>

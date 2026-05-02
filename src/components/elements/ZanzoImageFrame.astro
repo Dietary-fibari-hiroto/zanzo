@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+const {className,src,alt} = Astro.props;
+import { ImagesIndex } from "../../assets/ImagesIndex";
+---
+
+
+<figure class={`${className} zanzo-frame flex-all-center`}>
+    <Image src={src} alt={alt} class="zanzo-main" />
+    <Image src={src} alt="" class="zanzo-ghost" aria-hidden="true" />
+</figure>
+
+<style lang="scss">
+    .zanzo{
+        &-frame{
+            overflow:hidden;
+            position: relative;
+            > :global(img){
+                width: 100%;
+                height: 100%;
+            }
+
+
+            &::after{
+                content:'';
+                position: absolute;
+                inset:0;
+                background: inherit;
+                opacity: 0;
+                transition:opacity 0.4s;
+            }
+        }
+
+        &-ghost{
+            position:absolute;
+            inset:0;
+            opacity: 0;
+            transition: opacity 0.4s, transform 0.4s;
+            pointer-events: none;
+            
+        }
+    }
+
+    :global([data-zanzomode="on"]) .zanzo-ghost{
+        opacity: 0.7;
+        transform: translateX(var(--zanzo-x));
+    }
+</style>

@@ -1,0 +1,56 @@
+---
+import {BaseLayout} from "../layout";
+import {Hero,Concept,Profile,Album} from "../sections/index";
+import {ZanzoImageFrame,ZanzoButtonFrame} from "../components";
+import { ImagesIndex } from "../assets/ImagesIndex";
+---
+
+<BaseLayout>
+	<figure class="fixed-background">
+		<ZanzoImageFrame className="section-frame" src={ImagesIndex.DSC_0183} alt="hero-iamge"/>
+	</figure>
+	<fifure class="section-frame" hero-fadeout />
+
+	<Hero/>
+	<Concept/>
+	<Profile/>
+	<Album/>
+
+
+</BaseLayout>
+<script>
+	import {setUpFadeInWindowOnScroll} from "../hooks";
+    setUpFadeInWindowOnScroll({
+        scrollThreshold:100,
+        addClass:"is-invisible",
+        attribute:"[hero-fadeout]"
+    })
+</script>
+
+<style lang="scss">
+	.fixed-background{
+		position: fixed;
+		top:0;
+		left:0;
+		overflow: hidden;
+		height:100dvh;
+		background-color: black;
+
+		z-index: -3;
+	}
+
+	[hero-fadeout]{
+		position: fixed;
+		top:0;
+		left:0;
+		z-index: -2;
+		opacity: 0;
+		background-color: #CCCCCC44;
+		backdrop-filter: blur(10px);
+
+		transition: opacity 1s ease-in-out;
+		&.is-invisible{
+			opacity: 1;
+		}
+	}
+</style>

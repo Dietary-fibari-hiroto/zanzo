@@ -1,0 +1,55 @@
+---
+
+---
+
+<div class="logo-container">
+    <div class="square top" />
+    <div class="square bottom" />
+</div>
+
+
+<style lang="scss">
+    .logo-container{
+        position: relative;
+        width: 5rem;
+        height: 5rem;
+        transition: all 0.1s ease-in-out; 
+        :global([data-zanzomode="on"]) &:hover{
+            .top{transform:translate(10%,-10%);}
+            .bottom{transform:translate(-10%,10%);}
+            .square{border: white solid 1px;}
+        }
+        :global([data-zanzomode="off"]) &:hover{
+            .top{transform:translate(10%,-10%);}
+            .bottom{transform:translate(-10%,10%);}
+            .square{border: white solid 1px;}
+        }
+    }
+    .square{
+        position: absolute;
+        border: white solid 3px;
+        width: 3.5rem;
+        height: 3.5rem;
+        transition: all 0.1s ease-in-out ; 
+
+        :global([data-zanzomode="off"]) &.top{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        :global([data-zanzomode="off"]) &.bottom{
+            bottom: 50%;
+            right: 50%;
+            transform: translate(50%, 50%);
+        }
+
+        :global([data-zanzomode="on"]) &.top{
+            top:0;right:0;
+        }
+        :global([data-zanzomode="on"]) &.bottom{
+            bottom:0;left:0;
+        }
+    }
+    
+
+</style>

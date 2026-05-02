@@ -1,0 +1,61 @@
+---
+import { ImagesIndex } from "../../assets/ImagesIndex";
+---
+<section class="profile">
+    <img class="img--md-vertical" src={ImagesIndex.profile_img.src} alt="profile_img" />
+    <div class="profile-text">
+        <p class="text-3xl">小野寺  広登</p>
+        <p class="text-base__concept">
+            一眼を持ってふらふら歩くことが多いです。<br/>
+            撮るのは、人物と風景がメイン。<br/>
+            その時の空気や彩が好きで撮ってます。<br/>
+            なので技術できに上手いわけじゃないけど、<br/>
+            自分が「いいな」と思ったものを残せたらいいな、<br/>
+            くらいの距離感でカメラを握っています。<br/>
+        </p>
+    </div>
+    <div class="profile-english">
+        <div class="profile-english__text">
+            <p class="text-3xl">Hiroto Onodera</p>
+            <p class="text-base__concept">
+I often wander around with my camera.<br/>
+I mainly shoot people and landscapes.<br/>
+I like capturing the atmosphere and colors of the moment.<br/>
+So I wouldn’t say I’m technically skilled,<br/>
+but I just like holding my camera with the hope of capturing things that feel right to me.<br/>
+            </p>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .profile{
+        width: 100%;
+        height: fit-content;
+        padding:5rem 0;
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--colot-background);
+
+
+        &-text{
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 0 3rem;
+        }
+
+        &-english{
+            display: flex;
+            align-items: end;
+            &__text{
+                height:min-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                gap: 3rem;
+                padding: 0 3rem;
+            }
+        }
+    }
+</style>
