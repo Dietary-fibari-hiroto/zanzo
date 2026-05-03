@@ -5,9 +5,9 @@ import { ImagesIndex } from "../../assets/ImagesIndex";
 ---
 
 
-<figure class={`${className} zanzo-frame flex-all-center`}>
-    <Image src={src} alt={alt} class="zanzo-main" />
-    <Image src={src} alt="" class="zanzo-ghost" aria-hidden="true" />
+<figure class={`${className} zanzo-frame`}>
+    <Image src={src} alt={alt} class=`${className} zanzo-main` />
+    <Image src={src} alt="" class=`${className} zanzo-ghost` aria-hidden="true" />
 </figure>
 
 <style lang="scss">
@@ -19,18 +19,7 @@ import { ImagesIndex } from "../../assets/ImagesIndex";
                 width: 100%;
                 height: 100%;
             }
-
-
-            &::after{
-                content:'';
-                position: absolute;
-                inset:0;
-                background: inherit;
-                opacity: 0;
-                transition:opacity 0.4s;
-            }
         }
-
         &-ghost{
             position:absolute;
             inset:0;

@@ -1,0 +1,80 @@
+---
+import { ZanzoLogo } from "../components";
+---
+
+
+<script>
+    const delay = (ms:number) => new Promise(resolve => setTimeout(resolve,ms));
+
+    type LoadingSettings={
+        screenId:string,//スクリーンのid
+        currentDurations:number,//Durationの総計
+        addShowClass:string,
+        storagePath:string
+    }
+    const _loadingSettings:LoadingSettings = {
+        screenId:"loading-screen",
+        currentDurations:3000,
+        addShowClass:"",
+        storagePath:"zanzo_strage"
+    }
+
+    const loadingWindow = async ()=>{
+        const screen = document.getElementById(_loadingSettings.screenId) as HTMLElement;
+        const main = document.querySelector('main') as HTMLElement;
+
+        if(!screen) return;
+        if(sessionStorage.getItem(_loadingSettings.storagePath) === "true"){
+            screen.remove();
+            main.style.visibility = 'visible';
+            main.style.opacity = '1';
+            return;
+        }
+
+
+        screen.style.visibility="visible";
+        await delay(750);
+        main.style.visibility = 'visible';
+        main.style.opacity = '1';
+        await delay(750);
+
+        screen.style.opacity='0';
+
+        setTimeout(()=>{
+            screen.remove();
+        },_loadingSettings.currentDurations);
+
+        sessionStorage.setItem(_loadingSettings.storagePath,"true");
+    }
+
+    if(document.readyState === "complete"){
+        loadingWindow();
+    }else{
+        window.addEventListener('load',loadingWindow);
+    }
+
+</script>
+
+
+
+<section id="loading-screen" class="section-frame">
+    <ZanzoLogo isBlack = true/>
+    <p  class="text-7xl">ZANZO</p>
+</section>
+
+<style lang="scss">
+    #loading-screen{
+        position: fixed;
+        z-index: 99;
+        top:0;
+        left:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #EEEEEE;
+        gap:1rem;
+
+        visibility: hidden;
+        transition: opacity 1s ease-in-out;
+    }
+</style>

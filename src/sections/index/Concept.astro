@@ -15,19 +15,19 @@ import { ZanzoImageFrame } from "../../components";
         </div>
         <p class="concept-content__text text-base__concept">
             カメラを持って出かけた日の、 
-ちょっと好きだった景色や人を、
- そのまま残しています。
-<br/>
-<br/>
-構図も技術もそこそこに、
- 「いいな」と思った瞬間だけを集めた、 
-ゆるい写真の記録です。
+            ちょっと好きだった景色や人を、
+            そのまま残しています。
+            <br/>
+            <br/>
+            構図も技術もそこそこに、
+            「いいな」と思った瞬間だけを集めた、 
+            ゆるい写真の記録です。
 
 
-<br/>
-<br/>
-On days when I go out with my camera,I simply capture the little scenes and people I find myself drawn to.
-Without worrying too much about composition or technique,this is just a loose collection of moments that felt right to me.
+            <br/>
+            <br/>
+            On days when I go out with my camera,I simply capture the little scenes and people I find myself drawn to.
+            Without worrying too much about composition or technique,this is just a loose collection of moments that felt right to me.
         </p>
     </div>
     
@@ -63,6 +63,19 @@ Without worrying too much about composition or technique,this is just a loose co
                 color:var(--color-pointer);
                 box-sizing: border-box;
                 padding: 1rem;
+            }
+        }
+    }
+
+    @media (max-width:767px) {
+        .concept{
+            &-figure{
+                flex-direction: column;
+                align-items: end;
+                gap: 3rem;
+            }
+            &-content{
+                width: 90%;
             }
         }
     }

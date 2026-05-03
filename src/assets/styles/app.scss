@@ -8,6 +8,12 @@ body {
   scroll-behavior: smmoth;
 }
 
+main {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
 html {
   font-size: clamp(10px, 1vw, 16px);
 }

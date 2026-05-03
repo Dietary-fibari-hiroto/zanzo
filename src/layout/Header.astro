@@ -67,7 +67,7 @@ import {menuList} from "../constants/AppData";
         position: fixed;
         top:0;
         left:0;
-        z-index:99;
+        z-index:98;
         width: 100%;
         box-sizing: border-box;
         padding:1rem;
@@ -75,8 +75,8 @@ import {menuList} from "../constants/AppData";
 
 
     #header-menu{
-        background: #00000088;
-        backdrop-filter: blur(20px);
+        background: #000000aa;
+        backdrop-filter: blur(50px);
         position: fixed;
         z-index: -1;
         top:0;left:0;
@@ -118,8 +118,8 @@ import {menuList} from "../constants/AppData";
 
         &-list{
             max-width: 43.5rem; 
-           display: flex;
-           flex-direction: column;
+            display: flex;
+            flex-direction: column;
             gap: 3rem;
 
             &__group{
@@ -128,9 +128,7 @@ import {menuList} from "../constants/AppData";
                flex-direction: column;
                gap: 0.5rem;
                &-title{border-bottom: 1px white solid;width: 100%;}
-               &contents{
-            
-                } 
+
             }
         }
     }
@@ -146,5 +144,16 @@ import {menuList} from "../constants/AppData";
         }   
     }
  
+@media(max-width:767px){
+    .menu{
+        flex-direction: column;
+        overflow-y: scroll;
 
+        &-list{
+            &__group{
+                width:100%;
+            }
+        }
+    }
+}
 </style>

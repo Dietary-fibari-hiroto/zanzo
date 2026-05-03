@@ -12,3 +12,6 @@ export type menuDTO = {
 
     delay:number;//遅らせ
 }
+
+
+
