@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets";
-const {className,src,alt} = Astro.props;
+const {className,src,alt,isPriority=false} = Astro.props;
 import { ImagesIndex } from "../../assets/ImagesIndex";
 ---
 
 
 <figure class={`${className} zanzo-frame`}>
-    <Image src={src} alt={alt} class=`${className} zanzo-main` />
-    <Image src={src} alt="" class=`${className} zanzo-ghost` aria-hidden="true" />
+    <Image src={src} alt={alt} class=`${className} zanzo-main` priority={isPriority} />
+    <Image src={src} alt="" class=`${className} zanzo-ghost` aria-hidden="true" priority={isPriority} />
 </figure>
 
 <style lang="scss">

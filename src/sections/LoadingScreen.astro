@@ -50,7 +50,7 @@ import { ZanzoLogo } from "../components";
     if(document.readyState === "complete"){
         loadingWindow();
     }else{
-        window.addEventListener('load',loadingWindow);
+        window.addEventListener('DOMContentLoaded',loadingWindow);
     }
 
 </script>
